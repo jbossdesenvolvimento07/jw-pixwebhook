@@ -5,7 +5,7 @@ app.use(cors());
 app.use(express.urlencoded());
 app.use(express.json());
 
-const port = process.env.APP_PORT || 8888
+const port = process.env.PORT || 8888
 
 app.get('/', (req, res) => {
     res.sendStatus(200)
