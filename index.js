@@ -1,6 +1,6 @@
 const express = require('express')
 const fs = require('fs');
-const https = require('https');
+const http = require('http');
 const app = express()
 require('dotenv').config()
 
@@ -46,7 +46,7 @@ const options = {
 
 console.log("options", options)
      
-var server = https.createServer(options, app);
+var server = http.createServer(options, app);
 
 server.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port " + this.address().port);
