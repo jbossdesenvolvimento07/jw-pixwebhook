@@ -5,8 +5,6 @@ app.use(cors());
 app.use(express.urlencoded());
 app.use(express.json());
 
-const port = process.env.PORT || 8888
-
 app.get('/', (req, res) => {
     res.sendStatus(200)
 })
@@ -23,6 +21,6 @@ app.post('/webhook/pix', (req, res) => {
     res.sendStatus(200)
 })
 
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
-})
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
