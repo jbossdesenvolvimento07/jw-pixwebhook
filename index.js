@@ -1,4 +1,6 @@
 const express = require('express')
+const fs = require('fs');
+const https = require('https');
 const app = express()
 require('dotenv').config()
 
@@ -21,6 +23,18 @@ app.post('/webhook/pix', (req, res) => {
     res.sendStatus(200)
 })
 
-app.listen(process.env.PORT || 3000, function(){
+// app.listen(process.env.PORT || 3000, function(){
+//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+//   });
+
+https.createServer({
+      // ...
+      cert: fs.readFileSync('CARoot.crt'),
+      //key: fs.readFileSync('server.key'),
+      // ...
+    },
+    app
+  )
+  .listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
+    });
