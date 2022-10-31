@@ -41,7 +41,7 @@ app.post('/webhook/pix', (req, res) => {
 
 const options = {
     //key: fs.readFileSync(__dirname + '/private.key', 'utf8'),
-    cert: fs.readFileSync(__dirname + '/CARoot.crt', 'utf8')
+    cert: fs.readFileSync(__dirname + '/NovoCertificado.crt', 'utf8')
 };
 
 console.log("options", options)
