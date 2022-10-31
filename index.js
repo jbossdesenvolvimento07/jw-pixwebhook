@@ -40,7 +40,7 @@ app.post('/webhook/pix', (req, res) => {
     });*/
 
 const options = {
-    //key: fs.readFileSync(__dirname + '/private.key', 'utf8'),
+    key: fs.readFileSync(__dirname + '/ARQUIVO_CHAVE_PRIVADA.key', 'utf8'),
     cert: fs.readFileSync(__dirname + '/NovoCertificado.crt', 'utf8')
 };
 
